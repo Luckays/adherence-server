@@ -125,9 +125,9 @@ Po spusteni aplikace vytvorte prvni administrativni ucet:
 curl -X POST http://127.0.0.1:3000/api/setup/bootstrap \
   -H "content-type: application/json" \
   -d '{
-    "setupToken":"zvol-vlastni-dlouhy-token",
+    "setupToken":"token",
     "loginId":"admin",
-    "password":"SemDejSilneAdminHeslo123!"
+    "password":"password"
   }'
 ```
 
