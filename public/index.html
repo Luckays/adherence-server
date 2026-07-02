@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Adherence k inhalační léčbě</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Adherence k inhalační léčbě</p>
+          <h1>Adherence k inhalační léčbě</h1>
+        </div>
+        <div class="hero-aside">
+          <div id="sessionBadge" class="session-badge hidden"></div>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section id="loginCard" class="panel auth-panel">
+          <div class="auth-brand">
+            <img src="/brand-card.jpg" alt="Adherence k inhalační léčbě" class="auth-brand-image">
+            <div class="auth-brand-copy">
+              <p class="eyebrow">Interní aplikace</p>
+              <h2>Přihlášení</h2>
+            </div>
+          </div>
+          <form id="loginForm" class="stack">
+            <label>
+              <span>Přihlašovací ID</span>
+              <input type="text" name="loginId" autocomplete="username" required>
+            </label>
+            <label>
+              <span>Heslo</span>
+              <input type="password" name="password" autocomplete="current-password" required>
+            </label>
+            <button type="submit" class="primary">Přihlásit</button>
+          </form>
+          <div id="loginMessage" class="message"></div>
+        </section>
+
+        <section id="appShell" class="hidden">
+          <section id="patientsView" class="view">
+            <div class="layout">
+              <aside class="panel sidebar">
+                <div class="sidebar-head">
+                  <h2>Správa</h2>
+                  <div class="toolbar-row">
+                    <button id="exportCsvButton" class="ghost small">Export CSV</button>
+                    <button id="exportRound1Button" class="ghost small">1. kolo CSV</button>
+                    <button id="exportRound2Button" class="ghost small">2. kolo CSV</button>
+                    <button id="backupButton" class="ghost small hidden">SQL záloha DB</button>
+                    <button id="logoutButton" class="ghost small">Odhlásit</button>
+                  </div>
+                </div>
+
+                <details class="panel-inline">
+                  <summary>Registrovat nového pacienta</summary>
+                  <form id="patientForm" class="stack compact">
+                    <label>
+                      <span>Identifikátor pacienta</span>
+                      <input name="noveid" required>
+                    </label>
+                    <label>
+                      <span>Poznámka</span>
+                      <textarea name="notes" rows="3"></textarea>
+                    </label>
+                    <button type="submit" class="primary">Uložit pacienta</button>
+                  </form>
+                </details>
+
+                <details id="adminUserSection" class="panel-inline hidden">
+                  <summary>Správa uživatelů</summary>
+                  <div class="admin-section-head">
+                    <p class="muted">Jen pro admina. Přidávání a odstraňování vyšetřujících i zdravotnických účtů.</p>
+                  </div>
+                  <form id="userForm" class="stack compact">
+                    <label>
+                      <span>Přihlašovací ID</span>
+                      <input name="loginId" type="text" autocomplete="off">
+                    </label>
+                    <label>
+                      <span>Heslo</span>
+                      <input name="password" type="password" required>
+                    </label>
+                    <label>
+                      <span>Role</span>
+                      <select name="role">
+                        <option value="editor">Vyšetřující</option>
+                        <option value="doctor">Zdravotník</option>
+                        <option value="admin">Admin</option>
+                      </select>
+                    </label>
+                    <button type="submit" class="primary">Přidat uživatele</button>
+                  </form>
+                  <div id="userList" class="patient-list"></div>
+                </details>
+              </aside>
+
+              <section class="content">
+                <div class="panel page-view">
+                  <div class="submission-head">
+                    <div>
+                      <h2>Seznam pacientů</h2>
+                      <p class="muted">
+                        Vyhledej pacienta a hned uvidíš stav posledních formulářů, aktivní práci i čas poslední změny.
+                      </p>
+                    </div>
+                  </div>
+
+                  <form id="searchForm" class="search-box">
+                    <input id="searchInput" name="query" type="search" placeholder="Hledej podle identifikátoru pacienta">
+                  </form>
+
+                  <div id="patientSummary" class="summary-strip"></div>
+                  <div id="patientTableWrap"></div>
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <section id="patientView" class="view hidden"></section>
+          <section id="questionnaireView" class="view hidden"></section>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

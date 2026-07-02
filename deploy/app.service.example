@@ -1,0 +1,16 @@
+[Unit]
+Description=Adherence k inhalacni lecbe
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/adherence-app
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node /opt/adherence-app/src/server.js
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

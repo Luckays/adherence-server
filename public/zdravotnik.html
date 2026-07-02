@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Adherence k inhalační léčbě</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="page-shell portal-shell">
+      <header class="hero portal-hero">
+        <div>
+          <p class="eyebrow">Adherence k inhalační léčbě</p>
+          <h1>Adherence k inhalační léčbě</h1>
+        </div>
+        <div class="hero-aside">
+          <div id="doctorBadge" class="session-badge hidden"></div>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section id="doctorLoginCard" class="panel auth-panel">
+          <div class="auth-brand">
+            <img src="/brand-card.jpg" alt="Adherence k inhalační léčbě" class="auth-brand-image">
+            <div class="auth-brand-copy">
+              <p class="eyebrow">Portál zdravotníka</p>
+              <h2>Přihlášení zdravotníka</h2>
+            </div>
+          </div>
+          <form id="doctorLoginForm" class="stack">
+            <label>
+              <span>Zdravotnické ID</span>
+              <input type="text" name="loginId" autocomplete="username" required>
+            </label>
+            <label>
+              <span>Heslo</span>
+              <input type="password" name="password" autocomplete="current-password" required>
+            </label>
+            <button type="submit" class="primary">Přihlásit</button>
+          </form>
+          <div id="doctorLoginMessage" class="message"></div>
+        </section>
+
+        <section id="doctorApp" class="hidden">
+          <section id="doctorHomeView" class="view"></section>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/doktor.js"></script>
+  </body>
+</html>
